@@ -27,7 +27,7 @@ public:
 	Fixed operator++(int);
 	Fixed& operator--();
 	Fixed operator--(int);
-	int getRawBits( void );
+	int getRawBits( void ) const;
 	void setRawBits( int const raw);
 	float tofloat(void)const ;
 	int toInt(void)const;

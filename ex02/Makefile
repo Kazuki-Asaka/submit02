@@ -6,7 +6,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 CXX		= clang++
 
 CXXFLAGS	= -std=c++98
-CFLAGS 	+= -Wall -Wextra -Werror
+CXXFLAGS 	+= -Wall -Wextra -Werror
 
 NAME	= ex02
 
