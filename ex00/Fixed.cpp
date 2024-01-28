@@ -9,7 +9,8 @@ Fixed::Fixed() {
 
 Fixed::Fixed(const Fixed& rhs) {
     std::cout << "Copy constructor called" << std::endl;
-	fp_value = rhs.fp_value;
+	// fp_value = rhs.fp_value;
+    *this = rhs;
 }
 
 Fixed::~Fixed() {
@@ -22,12 +23,8 @@ const Fixed& Fixed::operator=(const Fixed& rhs) {
     return(rhs);
 }
 
-int Fixed::getRawBits(void) {
-    // std::cout << "getRawBits member function called" << std::endl;
-    // // for (int i = 0; i < fractional_bit; i++) {
-    //     fp_value = fp_value * (1 << fractional_bit);
-    // // }
-	// return (static_cast<int>(fp_value));
+int Fixed::getRawBits(void) const{
+    std::cout << "getRawBits member function called" << std::endl;
     return (fp_value);
 }
 

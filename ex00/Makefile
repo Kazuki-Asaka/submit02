@@ -3,10 +3,10 @@ SRCS	=	Fixed.cpp\
 
 OBJS	=	$(SRCS:.cpp=.o)
 
-CXX		= clang++
+CXX		= c++
 
 CXXFLAGS	= -std=c++98
-CFLAGS 	+= -Wall -Wextra -Werror
+CXXFLAGS 	+= -Wall -Wextra -Werror
 
 NAME	= ex00
 

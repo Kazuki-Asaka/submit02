@@ -10,7 +10,7 @@ public:
 	Fixed(const Fixed& rhs);
 	~Fixed();
 	const Fixed& operator=(const Fixed& rhs);
-	int getRawBits( void );
+	int getRawBits( void )const;
 	void setRawBits( int const raw);
 private:
 	int fp_value;
