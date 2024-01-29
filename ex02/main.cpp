@@ -39,7 +39,16 @@
 int	main(void) {
 	Fixed	a;
 	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Fixed const c(a);
 
+	if (a == c)
+		std::cout << "==test ok" << std::endl;
+	if (a != b)
+		std::cout << "!=test ok" << std::endl;
+	std::cout << "---------operator<< test-------" << std::endl;
+	operator<<(std::cout ,a);
+	std::cout << std::endl;
+	std::cout << "----------------" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;

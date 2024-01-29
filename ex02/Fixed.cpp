@@ -13,18 +13,13 @@ Fixed::Fixed(int number){
 }
 
 Fixed::Fixed(float number){
-    // std::cout << "before round" << number * (1 << fractional_bit) <<std::endl;
     std::cout << "Float constructor called" << std::endl;
     fp_value = static_cast<int>(roundf(number * (1 << fractional_bit)));
-    // std::cout << "not round :" << fp_value << std::endl;
-
-    // fp_value = static_cast<int>(number * (1 << fractional_bit));
-    // std::cout << "round :" << fp_value << std::endl;
 }
 
 Fixed::Fixed(const Fixed& rhs) {
     std::cout << "Copy constructor called" << std::endl;
-	fp_value = rhs.fp_value;
+	*this = rhs;
 }
 
 Fixed::~Fixed() {
@@ -114,10 +109,6 @@ Fixed Fixed::operator--(int) {
 //
 int Fixed::getRawBits(void) const{
     std::cout << "getRawBits member function called" << std::endl;
-    // for (int i = 0; i < fractional_bit; i++) {
-    //     fp_value = fp_value * 2;
-    // }
-	// return (static_cast<int>(fp_value));
     return (fp_value);
 }
 
