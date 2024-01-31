@@ -12,7 +12,7 @@ public:
 	Fixed(float number);
 	Fixed(const Fixed& rhs);
 	~Fixed();
-	const Fixed& operator=(const Fixed& rhs);
+	Fixed& operator=(const Fixed& rhs);
 	bool operator==(const Fixed& rhs)const;
 	bool operator!=(const Fixed& rhs)const;
 	bool operator<(const Fixed& rhs)const;

@@ -13,7 +13,7 @@ public:
 	Fixed(float number);
 	Fixed(const Fixed& rhs);
 	~Fixed();
-	const Fixed& operator=(const Fixed& rhs);
+	Fixed& operator=(const Fixed& rhs);
 	int getRawBits( void )const;
 	void setRawBits( int const raw);
 	float tofloat(void)const ;

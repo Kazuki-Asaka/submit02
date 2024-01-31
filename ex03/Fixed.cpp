@@ -32,10 +32,10 @@ Fixed::~Fixed() {
 }
 
 //
-const Fixed& Fixed::operator=(const Fixed& rhs) {
+Fixed& Fixed::operator=(const Fixed& rhs) {
 	std::cout << "Copy assignment operator called" << std::endl;
     this->fp_value = rhs.fp_value;
-    return(rhs);
+    return(*this);
 }
 
 bool Fixed::operator==(const Fixed& rhs) const{
