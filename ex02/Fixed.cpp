@@ -48,7 +48,7 @@ bool Fixed::operator<(const Fixed& rhs) const{
 }
 
 bool Fixed::operator>(const Fixed&rhs) const{
-    return (this -> fp_value < rhs.fp_value);
+    return (this -> fp_value > rhs.fp_value);
 }
 
 bool Fixed::operator<=(const Fixed& rhs) const {
@@ -73,7 +73,10 @@ Fixed Fixed::operator-(const Fixed& rhs)const {
 
 Fixed Fixed::operator*(const Fixed& rhs)const {
     Fixed tmp;
-    tmp.fp_value = this -> fp_value * (rhs.fp_value / (1 << fractional_bit));
+    long long keep;
+
+    keep = this -> fp_value * rhs.fp_value;
+    tmp.fp_value = keep / (1 << fractional_bit);
     return (tmp);
 }
 

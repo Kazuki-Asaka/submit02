@@ -10,9 +10,13 @@ public:
     Point(const Point &new_point);
     Point& operator=(const Point &rhs);
     ~Point();
+    Fixed getX() const;
+    Fixed getY() const;
 private:
     const Fixed x;
     const Fixed y;
 };
+
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
 #endif

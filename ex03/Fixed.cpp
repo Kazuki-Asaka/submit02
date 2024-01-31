@@ -4,36 +4,36 @@
 
 Fixed::Fixed(){
     this -> fp_value = 0;
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int number){
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
     fp_value = number * (1 << fractional_bit);
 }
 
 Fixed::Fixed(float number){
-    std::cout << "before round" <<number * (1 << fractional_bit) <<std::endl;
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "before round" <<number * (1 << fractional_bit) <<std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     fp_value = static_cast<int>(roundf(number * (1 << fractional_bit)));
-    std::cout << "not round :" << fp_value << std::endl;
+    // std::cout << "not round :" << fp_value << std::endl;
 
-    fp_value = static_cast<int>(number * (1 << fractional_bit));
-    std::cout << "round :" << fp_value << std::endl;
+    // fp_value = static_cast<int>(number * (1 << fractional_bit));
+    // std::cout << "round :" << fp_value << std::endl;
 }
 
 Fixed::Fixed(const Fixed& rhs) {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
 	fp_value = rhs.fp_value;
 }
 
 Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 //
 Fixed& Fixed::operator=(const Fixed& rhs) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
     this->fp_value = rhs.fp_value;
     return(*this);
 }
@@ -53,7 +53,7 @@ bool Fixed::operator<(const Fixed& rhs) const{
 }
 
 bool Fixed::operator>(const Fixed&rhs) const{
-    return (this -> fp_value < rhs.fp_value);
+    return (this -> fp_value > rhs.fp_value);
 }
 
 bool Fixed::operator<=(const Fixed& rhs) const {
@@ -78,13 +78,16 @@ Fixed Fixed::operator-(const Fixed& rhs)const {
 
 Fixed Fixed::operator*(const Fixed& rhs)const {
     Fixed tmp;
-    tmp.fp_value = this -> fp_value * (rhs.fp_value / (1 << fractional_bit));
+    long long keep;
+    keep = this -> fp_value * rhs.fp_value;
+    tmp.fp_value = keep / (1 << fractional_bit);
     return (tmp);
 }
 
 Fixed Fixed::operator/(const Fixed& rhs) const {
     Fixed tmp;
-    tmp.fp_value = this -> fp_value / rhs.fp_value * (1 << fractional_bit);
+    tmp.fp_value = this->fp_value / rhs.fp_value * (1 << fractional_bit);
+    // tmp.fp_value = static_cast<float>(this->fp_value) / static_cast<float>(rhs.fp_value) * (1 << fractional_bit);
     return(tmp);
 }
 
@@ -113,7 +116,7 @@ Fixed Fixed::operator--(int) {
 }
 //
 int Fixed::getRawBits(void) {
-    std::cout << "getRawBits member function called" << std::endl;
+    // std::cout << "getRawBits member function called" << std::endl;
     // for (int i = 0; i < fractional_bit; i++) {
     //     fp_value = fp_value * 2;
     // }
@@ -122,7 +125,7 @@ int Fixed::getRawBits(void) {
 }
 
 void Fixed::setRawBits(int const raw) {
-    std::cout << "setRawbits member function called" << std::endl;
+    // std::cout << "setRawbits member function called" << std::endl;
     this -> fp_value = raw;
 }
 
